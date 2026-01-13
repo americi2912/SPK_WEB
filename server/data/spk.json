@@ -1,0 +1,16 @@
+{
+  "criteria": [
+    { "code": "C1", "name": "Harga", "weight": 5, "type": "cost" },
+    { "code": "C2", "name": "Brand", "weight": 4, "type": "benefit" },
+    { "code": "C3", "name": "Komposisi", "weight": 3, "type": "benefit" },
+    { "code": "C4", "name": "Tingkat Estetika Botol", "weight": 2, "type": "benefit" },
+    { "code": "C5", "name": "Ketersediaan", "weight": 1, "type": "benefit" }
+  ],
+  "alternatives": [
+    { "code": "A1", "name": "Alternatif 1", "values": [4, 4, 2, 3, 3] },
+    { "code": "A2", "name": "Alternatif 2", "values": [1, 5, 1, 1, 4] },
+    { "code": "A3", "name": "Alternatif 3", "values": [3, 2, 5, 1, 1] },
+    { "code": "A4", "name": "Alternatif 4", "values": [2, 4, 1, 4, 5] },
+    { "code": "A5", "name": "Alternatif 5", "values": [5, 1, 1, 5, 3] }
+  ]
+}
