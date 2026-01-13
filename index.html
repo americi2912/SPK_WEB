@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPK TOPSIS - Rekomendasi Alkohol</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Sistem Pendukung Keputusan - Metode TOPSIS</h1>
+      <p class="subtitle">
+        Dataset & bobot diambil dari dokumen “SPK FIX”. (5 alternatif, 5 kriteria)
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>Parameter Kriteria</h2>
+      <p class="note">
+        Catatan: default tipe kriteria diset <b>Harga = Cost</b> dan lainnya <b>Benefit</b>.
+        Kamu bisa ubah dari dropdown.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Nama Kriteria</th>
+              <th>Bobot (1–5)</th>
+              <th>Bobot Normalisasi (W)</th>
+              <th>Tipe</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyKriteria"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Matriks Keputusan (X)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead id="theadX"></thead>
+          <tbody id="tbodyX"></tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button id="btnProses">Proses TOPSIS</button>
+        <button id="btnReset" class="secondary">Reset ke Data Awal</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Output Perhitungan</h2>
+
+      <div class="grid">
+        <div>
+          <h3>1) Pembagi Normalisasi (√Σx² per kolom)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Kriteria</th>
+                  <th>Pembagi</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyPembagi"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h3>2) Bobot Normalisasi (W)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Kriteria</th>
+                  <th>W</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyW"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <h3>3) Matriks Ternormalisasi (R)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead id="theadR"></thead>
+          <tbody id="tbodyR"></tbody>
+        </table>
+      </div>
+
+      <h3>4) Matriks Ternormalisasi Terbobot (Y = R × W)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead id="theadY"></thead>
+          <tbody id="tbodyY"></tbody>
+        </table>
+      </div>
+
+      <div class="grid">
+        <div>
+          <h3>5) Solusi Ideal (+) & (-)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Kriteria</th>
+                  <th>A+</th>
+                  <th>A-</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyIdeal"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h3>6) D+ / D- dan Nilai Preferensi (V)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Alternatif</th>
+                  <th>D+</th>
+                  <th>D-</th>
+                  <th>V = D- / (D+ + D-)</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyDV"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <h3>7) Ranking Akhir</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Ranking</th>
+              <th>Kode</th>
+              <th>Nama Produk</th>
+              <th>V</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyRank"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>SPK Web TOPSIS (Frontend-only). Bisa dideploy ke GitHub Pages.</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
